@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Surprise</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #c6bbfc 0%, #260872 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 350px;
+            height: 450px;
+        }
+
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-sizing: border-box;
+        }
+
+        /* Page Transitions */
+        .hidden {
+            opacity: 0;
+            transform: scale(0.8) translateY(50px);
+            pointer-events: none;
+        }
+
+        h2 { color: #2906d7; margin-bottom: 10px; }
+        p { color: #7f8c8d; line-height: 1.5; }
+        
+        .btn {
+            background: #1875ef;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover { background: #3f05e0; }
+
+        .confetti-icon { font-size: 50px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="page1" class="page">
+            <div class="confetti-icon">✉️</div>
+            <h2>Hey, sadhana!</h2>
+            <p>I have a little something for you. Are you ready to see it?</p>
+            <button class="btn" onclick="nextPage()">Open Invitation</button>
+        </div>
+
+        <div id="page2" class="page hidden">
+            <div class="confetti-icon">🎉</div>
+            <h2>Happy Birthday Sadhu!</h2>
+            <p>"Another year older, another year wiser (hopefully!). May your day be as awesome as you are."</p>
+            <p><strong>- Abinaya M</strong></p>
+            <button class="btn" onclick="prevPage()">Go Back</button>
+        </div>
+    </div>
+
+    <script>
+        function nextPage() {
+            document.getElementById('page1').classList.add('hidden');
+            document.getElementById('page2').classList.remove('hidden');
+        }
+
+        function prevPage() {
+            document.getElementById('page2').classList.add('hidden');
+            document.getElementById('page1').classList.remove('hidden');
+        }
+    </script>
+
+</body>
+</html>
